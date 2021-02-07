@@ -1,6 +1,23 @@
 {
   "dependencies": [
     {
+      "name": "@graphql-codegen/cli",
+      "type": "build"
+    },
+    {
+      "name": "@graphql-codegen/typescript",
+      "type": "build"
+    },
+    {
+      "name": "@graphql-codegen/typescript-operations",
+      "type": "build"
+    },
+    {
+      "name": "@graphql-codegen/typescript-react-query",
+      "version": "alpha",
+      "type": "build"
+    },
+    {
       "name": "@testing-library/jest-dom",
       "type": "build"
     },
@@ -34,6 +51,19 @@
       "type": "build"
     },
     {
+      "name": "amplify-graphql-docs-generator",
+      "type": "build"
+    },
+    {
+      "name": "aws-sdk",
+      "version": "^2",
+      "type": "build"
+    },
+    {
+      "name": "graphql",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "version": "^0.16.3",
       "type": "build"
@@ -49,11 +79,40 @@
       "type": "build"
     },
     {
+      "name": "@aws-amplify/auth",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-amplify/ui-components",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-amplify/ui-react",
+      "type": "runtime"
+    },
+    {
+      "name": "aws-amplify",
+      "type": "runtime"
+    },
+    {
       "name": "react",
       "type": "runtime"
     },
     {
       "name": "react-dom",
+      "type": "runtime"
+    },
+    {
+      "name": "react-query",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "react-router",
+      "type": "runtime"
+    },
+    {
+      "name": "react-router-dom",
       "type": "runtime"
     },
     {

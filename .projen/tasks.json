@@ -113,8 +113,7 @@
     },
     "dev": {
       "name": "dev",
-      "category": "00.build",
-      "description": "Starts the react application",
+      "description": "Runs the application locally",
       "steps": [
         {
           "exec": "react-scripts start"
@@ -128,6 +127,40 @@
       "steps": [
         {
           "exec": "react-scripts eject"
+        }
+      ]
+    },
+    "generate-exports": {
+      "name": "generate-exports",
+      "description": "Generates aws-exports.js",
+      "steps": [
+        {
+          "exec": "node bin/generateExports.js"
+        }
+      ]
+    },
+    "copy-schema": {
+      "name": "copy-schema",
+      "steps": [
+        {
+          "exec": "cp ../appsync/schema.graphql ./schema.graphql"
+        }
+      ]
+    },
+    "generate-statements": {
+      "name": "generate-statements",
+      "steps": [
+        {
+          "exec": "node bin/generateStatements.js"
+        }
+      ]
+    },
+    "codegen": {
+      "name": "codegen",
+      "description": "Copies the backend schema and generates frontend code",
+      "steps": [
+        {
+          "exec": "yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql"
         }
       ]
     }
