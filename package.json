@@ -15,7 +15,6 @@
     "dev": "npx projen dev",
     "eject": "npx projen eject",
     "generate-exports": "npx projen generate-exports",
-    "copy-schema": "npx projen copy-schema",
     "generate-statements": "npx projen generate-statements",
     "codegen": "npx projen codegen"
   },
@@ -46,6 +45,7 @@
     "@aws-amplify/auth": "^3.4.20",
     "@aws-amplify/ui-components": "^0.10.3",
     "@aws-amplify/ui-react": "^0.2.37",
+    "@types/react-router-dom": "^5.1.7",
     "aws-amplify": "^3.3.17",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

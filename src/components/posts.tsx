@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Auth } from '@aws-amplify/auth';
 import { useMutation } from 'react-query';
 

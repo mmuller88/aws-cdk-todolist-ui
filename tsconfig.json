@@ -22,7 +22,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "strictPropertyInitialization": true,
     "stripInternal": true,
     "target": "es5",

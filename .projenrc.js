@@ -14,6 +14,7 @@ const project = new web.ReactTypeScriptProject({
     'react-query@^2', // I have an open PR for react-query v3 support
     'react-router',
     'react-router-dom',
+    '@types/react-router-dom',
   ],
   devDeps: [
     '@graphql-codegen/cli',
@@ -41,6 +42,7 @@ const project = new web.ReactTypeScriptProject({
       isolatedModules: true,
       noEmit: true,
       jsx: 'react-jsx',
+      strictNullChecks: false,
     },
   },
 });
@@ -55,9 +57,9 @@ project.addTask('generate-exports', {
   exec: 'node bin/generateExports.js',
 });
 
-project.addTask('copy-schema', {
-  exec: 'cp ../appsync/schema.graphql ./schema.graphql',
-});
+// project.addTask('copy-schema', {
+//   exec: 'cp ../appsync/schema.graphql ./schema.graphql',
+// });
 
 project.addTask('generate-statements', {
   exec: 'node bin/generateStatements.js',
@@ -65,7 +67,8 @@ project.addTask('generate-statements', {
 
 project.addTask('codegen', {
   description: 'Copies the backend schema and generates frontend code',
-  exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
+  // exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
+  exec: 'yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
 });
 
 project.synth();

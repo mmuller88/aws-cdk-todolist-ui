@@ -8,7 +8,7 @@ const cloudformation = new AWS.CloudFormation();
 
 const REGION = process.env.REGION || 'us-east-2'
 
-const STACK_NAME = `cdk-appsync-react-demo`;
+const STACK_NAME = `todolist-stack-dev`;
 
 const appsyncGraphQLURLOutputKey = 'appsyncGraphQLEndpointOutput';
 const userPoolIdOutputKey = 'awsUserPoolId';

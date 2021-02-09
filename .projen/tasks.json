@@ -139,14 +139,6 @@
         }
       ]
     },
-    "copy-schema": {
-      "name": "copy-schema",
-      "steps": [
-        {
-          "exec": "cp ../appsync/schema.graphql ./schema.graphql"
-        }
-      ]
-    },
     "generate-statements": {
       "name": "generate-statements",
       "steps": [
@@ -160,7 +152,7 @@
       "description": "Copies the backend schema and generates frontend code",
       "steps": [
         {
-          "exec": "yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql"
+          "exec": "yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql"
         }
       ]
     }

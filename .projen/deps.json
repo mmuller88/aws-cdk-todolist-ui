@@ -91,6 +91,10 @@
       "type": "runtime"
     },
     {
+      "name": "@types/react-router-dom",
+      "type": "runtime"
+    },
+    {
       "name": "aws-amplify",
       "type": "runtime"
     },
