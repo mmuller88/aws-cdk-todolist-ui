@@ -1,0 +1,11 @@
+#set( $headers = $utils.http.copyHeaders($ctx.request.headers) )
+$util.qr($headers.put("accept-encoding", "application/json"))
+{
+  "version": "2018-05-29",
+  "method": "GET",
+  "resourcePath": "/todos",
+  "params": {
+      "query": $util.toJson($ctx.args.query),
+      "headers": $util.toJson($headers)
+  }
+}

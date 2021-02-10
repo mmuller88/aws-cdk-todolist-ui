@@ -1,8 +1,8 @@
 import {
   useMutation,
-  MutationConfig,
+  UseMutationOptions,
   useQuery,
-  QueryConfig
+  UseQueryOptions
 } from "react-query";
 import { amplifyFetcher } from "../lib/fetcher";
 export type Maybe<T> = T | null | undefined;
@@ -412,19 +412,25 @@ export const CreatePostDocument = `
   }
 }
     `;
-export const useCreatePostMutation = (
-  variables?: CreatePostMutationVariables,
-  options?: MutationConfig<
+export const useCreatePostMutation = <TError = unknown, TContext = unknown>(
+  options?: UseMutationOptions<
     CreatePostMutation,
-    unknown,
-    CreatePostMutationVariables
+    TError,
+    CreatePostMutationVariables,
+    TContext
   >
 ) =>
-  useMutation<CreatePostMutation, unknown, CreatePostMutationVariables>(
-    amplifyFetcher<CreatePostMutation, CreatePostMutationVariables>(
-      CreatePostDocument,
-      variables
-    ),
+  useMutation<
+    CreatePostMutation,
+    TError,
+    CreatePostMutationVariables,
+    TContext
+  >(
+    (variables?: CreatePostMutationVariables) =>
+      amplifyFetcher<CreatePostMutation, CreatePostMutationVariables>(
+        CreatePostDocument,
+        variables
+      )(),
     options
   );
 export const UpdatePostDocument = `
@@ -440,19 +446,25 @@ export const UpdatePostDocument = `
   }
 }
     `;
-export const useUpdatePostMutation = (
-  variables?: UpdatePostMutationVariables,
-  options?: MutationConfig<
+export const useUpdatePostMutation = <TError = unknown, TContext = unknown>(
+  options?: UseMutationOptions<
     UpdatePostMutation,
-    unknown,
-    UpdatePostMutationVariables
+    TError,
+    UpdatePostMutationVariables,
+    TContext
   >
 ) =>
-  useMutation<UpdatePostMutation, unknown, UpdatePostMutationVariables>(
-    amplifyFetcher<UpdatePostMutation, UpdatePostMutationVariables>(
-      UpdatePostDocument,
-      variables
-    ),
+  useMutation<
+    UpdatePostMutation,
+    TError,
+    UpdatePostMutationVariables,
+    TContext
+  >(
+    (variables?: UpdatePostMutationVariables) =>
+      amplifyFetcher<UpdatePostMutation, UpdatePostMutationVariables>(
+        UpdatePostDocument,
+        variables
+      )(),
     options
   );
 export const DeletePostDocument = `
@@ -468,19 +480,25 @@ export const DeletePostDocument = `
   }
 }
     `;
-export const useDeletePostMutation = (
-  variables?: DeletePostMutationVariables,
-  options?: MutationConfig<
+export const useDeletePostMutation = <TError = unknown, TContext = unknown>(
+  options?: UseMutationOptions<
     DeletePostMutation,
-    unknown,
-    DeletePostMutationVariables
+    TError,
+    DeletePostMutationVariables,
+    TContext
   >
 ) =>
-  useMutation<DeletePostMutation, unknown, DeletePostMutationVariables>(
-    amplifyFetcher<DeletePostMutation, DeletePostMutationVariables>(
-      DeletePostDocument,
-      variables
-    ),
+  useMutation<
+    DeletePostMutation,
+    TError,
+    DeletePostMutationVariables,
+    TContext
+  >(
+    (variables?: DeletePostMutationVariables) =>
+      amplifyFetcher<DeletePostMutation, DeletePostMutationVariables>(
+        DeletePostDocument,
+        variables
+      )(),
     options
   );
 export const ListTodosDocument = `
@@ -493,11 +511,11 @@ export const ListTodosDocument = `
   }
 }
     `;
-export const useListTodosQuery = (
+export const useListTodosQuery = <TData = ListTodosQuery, TError = unknown>(
   variables?: ListTodosQueryVariables,
-  options?: QueryConfig<ListTodosQuery>
+  options?: UseQueryOptions<ListTodosQuery, TError, TData>
 ) =>
-  useQuery<ListTodosQuery>(
+  useQuery<ListTodosQuery, TError, TData>(
     ["ListTodos", variables],
     amplifyFetcher<ListTodosQuery, ListTodosQueryVariables>(
       ListTodosDocument,
@@ -518,11 +536,11 @@ export const GetPostDocument = `
   }
 }
     `;
-export const useGetPostQuery = (
+export const useGetPostQuery = <TData = GetPostQuery, TError = unknown>(
   variables: GetPostQueryVariables,
-  options?: QueryConfig<GetPostQuery>
+  options?: UseQueryOptions<GetPostQuery, TError, TData>
 ) =>
-  useQuery<GetPostQuery>(
+  useQuery<GetPostQuery, TError, TData>(
     ["GetPost", variables],
     amplifyFetcher<GetPostQuery, GetPostQueryVariables>(
       GetPostDocument,
@@ -546,11 +564,11 @@ export const ListPostsDocument = `
   }
 }
     `;
-export const useListPostsQuery = (
+export const useListPostsQuery = <TData = ListPostsQuery, TError = unknown>(
   variables?: ListPostsQueryVariables,
-  options?: QueryConfig<ListPostsQuery>
+  options?: UseQueryOptions<ListPostsQuery, TError, TData>
 ) =>
-  useQuery<ListPostsQuery>(
+  useQuery<ListPostsQuery, TError, TData>(
     ["ListPosts", variables],
     amplifyFetcher<ListPostsQuery, ListPostsQueryVariables>(
       ListPostsDocument,
@@ -568,11 +586,11 @@ export const GetTodoDocument = `
   }
 }
     `;
-export const useGetTodoQuery = (
+export const useGetTodoQuery = <TData = GetTodoQuery, TError = unknown>(
   variables: GetTodoQueryVariables,
-  options?: QueryConfig<GetTodoQuery>
+  options?: UseQueryOptions<GetTodoQuery, TError, TData>
 ) =>
-  useQuery<GetTodoQuery>(
+  useQuery<GetTodoQuery, TError, TData>(
     ["GetTodo", variables],
     amplifyFetcher<GetTodoQuery, GetTodoQueryVariables>(
       GetTodoDocument,
