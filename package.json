@@ -15,7 +15,6 @@
     "dev": "npx projen dev",
     "eject": "npx projen eject",
     "generate-exports": "npx projen generate-exports",
-    "copy-schema": "npx projen copy-schema",
     "generate-statements": "npx projen generate-statements",
     "codegen": "npx projen codegen"
   },

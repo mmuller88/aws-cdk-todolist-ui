@@ -6,7 +6,7 @@ const AWS = require('aws-sdk');
 AWS.config.update({region:'eu-central-1'});
 const cloudformation = new AWS.CloudFormation();
 
-const REGION = process.env.REGION || 'us-east-2'
+const REGION = process.env.REGION || 'eu-central-1'
 
 const STACK_NAME = `todolist-stack-dev`;
 
