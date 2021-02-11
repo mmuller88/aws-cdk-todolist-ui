@@ -6,11 +6,11 @@ import { useMutation } from 'react-query';
 import { TodoItem, useTodoListQuery, TodoAddDocument } from '../lib/api';
 import { API } from '../lib/fetcher';
 
-const initialState = { todoItem: '', username: ''  };
+const initialState = { body: '', username: ''  };
 
 export function Todos() {
   const [todo, setTodo] = useState(initialState);
-  const { todoItem } = todo;
+  const { body } = todo;
 
   const { data, isLoading, refetch } = useTodoListQuery(null, {
     refetchOnWindowFocus: false
@@ -27,7 +27,7 @@ export function Todos() {
   }
 
   const createNewTodo = async () => {
-    if (!todoItem) return
+    if (!body) return
 
     const userData = await Auth.currentAuthenticatedUser();
 
@@ -53,9 +53,9 @@ export function Todos() {
             ? data?.todoList?.map(todo => {
               return (
                 <div>
-                  <h4>Id: {todo.id}</h4>
-                  <h4>Username: {todo.username}</h4>
-                  <h5>Body: {todo.body}</h5>
+                  <h4>Body: {todo.body}</h4>
+                  <h5>Id: {todo.id}</h5>
+                  <h5>Username: {todo.username}</h5>
                 </div>
               )
             })
