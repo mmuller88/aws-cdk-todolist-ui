@@ -1,6 +1,6 @@
 # aws-cdk-todolist-ui
 
-AWS Amplify frontend for the appsync backend [aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist-ui)
+AWS Amplify frontend for the appsync backend [aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist)
 
 # Deploy Frontend CDK Stack
 
