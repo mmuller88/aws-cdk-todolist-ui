@@ -19,7 +19,8 @@ export function Todos() {
   // useCreatePostMutation isn't working correctly right now
   const [createTodo] = useMutation(async (input: any) => {
     const result = await API.getInstance().query(TodoAddDocument, { ...input });
-    return result.data?.createTodo as TodoItem;
+    console.log(result);
+    return result.data?.todoAdd as TodoItem;
   });
 
   const onChange = (e) => {
