@@ -1,3 +1,7 @@
+synth: [![Synth](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/)](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/?url=true)
+
+update pipeline: [![Synth](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/?projectName=CdkPipelineUpdatePipelineSe-b5VTvuigb4Db)](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/?url=true&projectName=CdkPipelineUpdatePipelineSe-b5VTvuigb4Db)
+
 # aws-cdk-todolist-ui
 
 AWS Amplify frontend for the appsync backend [aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist)
