@@ -13,7 +13,6 @@
 /build
 /dist
 /lib
-aws-exports.js
 build/Release
 coverage
 jspm_packages/
