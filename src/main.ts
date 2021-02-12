@@ -21,7 +21,7 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
   }],
   branch: 'main',
   repositoryName: 'aws-cdk-todolist-ui',
-  badges: { synthBadge: false },
+  badges: { synthBadge: true },
   buildCommand: 'cd frontend && yarn install && yarn build && cd ..',
   // installCommand: 'npm ci',
   customStack: (scope, stageAccount) => {
