@@ -1,11 +1,37 @@
-const { web } = require('projen');
+const { web, AwsCdkTypeScriptApp } = require('projen');
 
-const project = new web.ReactTypeScriptProject({
+const project = new AwsCdkTypeScriptApp({
+  name: 'aws-cdk-todolist-ui',
+  defaultReleaseBranch: 'main',
+  cdkVersion: '1.88.0',
+  cdkDependencies: [
+    '@aws-cdk/aws-iam',
+    '@aws-cdk/core',
+  ],
+  deps: [
+    '@mobileposse/auto-delete-bucket',
+    'aws-cdk-staging-pipeline',
+    'aws-cdk-build-badge',
+    // 'cdk-appsync-transformer',
+  ],
+
+  gitignore: [
+    // 'appsync/',
+  ],
+
+  releaseWorkflow: false,
+});
+
+project.synth();
+
+const frontendProject = new web.ReactTypeScriptProject({
   authorAddress: 'damadden88@googlemail.de',
   authorName: 'martin.mueller',
   defaultReleaseBranch: 'main',
-  jsiiFqn: "projen.web.ReactTypeScriptProject",
-  name: 'aws-cdk-todolist-ui',
+  outdir: 'frontend',
+  parent: project,
+  // jsiiFqn: "projen.web.ReactTypeScriptProject",
+  name: 'aws-cdk-todolist-ui-frontend',
   deps: [
     '@aws-amplify/auth',
     '@aws-amplify/ui-components',
@@ -45,14 +71,16 @@ const project = new web.ReactTypeScriptProject({
       strictNullChecks: false,
     },
   },
+
+  releaseWorkflow: false,
 });
 
-project.addTask('dev', {
+frontendProject.addTask('dev', {
   description: 'Runs the application locally',
   exec: 'react-scripts start',
 });
 
-project.addTask('generate-exports', {
+frontendProject.addTask('generate-exports', {
   description: 'Generates aws-exports.js',
   exec: 'node bin/generateExports.js',
 });
@@ -61,15 +89,15 @@ project.addTask('generate-exports', {
 //   exec: 'cp appsync/schema.graphql ./schema.graphql',
 // });
 
-project.addTask('generate-statements', {
+frontendProject.addTask('generate-statements', {
   exec: 'node bin/generateStatements.js',
 });
 
 
-project.addTask('codegen', {
+frontendProject.addTask('codegen', {
   description: 'Copies the backend schema and generates frontend code',
   // exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
   exec: 'yarn run generate-statements && graphql-codegen --config codegen.yml',
 });
 
-project.synth();
+frontendProject.synth();

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Auth } from '@aws-amplify/auth';
 import { useMutation } from 'react-query';
 
-// import { useListPostsQuery, CreatePostDocument, CreatePostInput, Post } from '../lib/api';
 import { TodoItem, useTodoListQuery, TodoAddDocument } from '../lib/api';
 import { API } from '../lib/fetcher';
 
@@ -16,7 +15,6 @@ export function Todos() {
     refetchOnWindowFocus: false
   });
 
-  // useCreatePostMutation isn't working correctly right now
   const [createTodo] = useMutation(async (input: any) => {
     const result = await API.getInstance().query(TodoAddDocument, { ...input });
     console.log(result);

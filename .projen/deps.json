@@ -1,40 +1,7 @@
 {
   "dependencies": [
     {
-      "name": "@graphql-codegen/cli",
-      "type": "build"
-    },
-    {
-      "name": "@graphql-codegen/typescript",
-      "type": "build"
-    },
-    {
-      "name": "@graphql-codegen/typescript-operations",
-      "type": "build"
-    },
-    {
-      "name": "@graphql-codegen/typescript-react-query",
-      "version": "alpha",
-      "type": "build"
-    },
-    {
-      "name": "@testing-library/jest-dom",
-      "type": "build"
-    },
-    {
-      "name": "@testing-library/react",
-      "type": "build"
-    },
-    {
-      "name": "@testing-library/user-event",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
-      "type": "build"
-    },
-    {
-      "name": "@types/node",
       "type": "build"
     },
     {
@@ -43,24 +10,47 @@
       "type": "build"
     },
     {
-      "name": "@types/react",
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "^4.3.0",
       "type": "build"
     },
     {
-      "name": "@types/react-dom",
+      "name": "@typescript-eslint/parser",
+      "version": "^4.3.0",
       "type": "build"
     },
     {
-      "name": "amplify-graphql-docs-generator",
+      "name": "aws-cdk",
+      "version": "^1.88.0",
       "type": "build"
     },
     {
-      "name": "aws-sdk",
-      "version": "^2",
+      "name": "eslint",
       "type": "build"
     },
     {
-      "name": "graphql",
+      "name": "eslint-import-resolver-node",
+      "type": "build"
+    },
+    {
+      "name": "eslint-import-resolver-typescript",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "jest",
+      "type": "build"
+    },
+    {
+      "name": "jest-junit",
+      "version": "^12",
+      "type": "build"
+    },
+    {
+      "name": "json-schema",
       "type": "build"
     },
     {
@@ -74,58 +64,48 @@
       "type": "build"
     },
     {
-      "name": "typescript",
-      "version": "^4.0.3",
+      "name": "ts-jest",
       "type": "build"
     },
     {
-      "name": "@aws-amplify/auth",
+      "name": "ts-node",
+      "type": "build"
+    },
+    {
+      "name": "typescript",
+      "version": "^3.9.5",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/assert",
+      "version": "^1.88.0",
       "type": "runtime"
     },
     {
-      "name": "@aws-amplify/ui-components",
+      "name": "@aws-cdk/aws-iam",
+      "version": "^1.88.0",
       "type": "runtime"
     },
     {
-      "name": "@aws-amplify/ui-react",
+      "name": "@aws-cdk/core",
+      "version": "^1.88.0",
       "type": "runtime"
     },
     {
-      "name": "@types/react-router-dom",
+      "name": "@aws-cdk/core",
+      "version": "^1.88.0",
       "type": "runtime"
     },
     {
-      "name": "aws-amplify",
+      "name": "@mobileposse/auto-delete-bucket",
       "type": "runtime"
     },
     {
-      "name": "react",
+      "name": "aws-cdk-build-badge",
       "type": "runtime"
     },
     {
-      "name": "react-dom",
-      "type": "runtime"
-    },
-    {
-      "name": "react-query",
-      "version": "^2",
-      "type": "runtime"
-    },
-    {
-      "name": "react-router",
-      "type": "runtime"
-    },
-    {
-      "name": "react-router-dom",
-      "type": "runtime"
-    },
-    {
-      "name": "react-scripts",
-      "version": "^4.0.0",
-      "type": "runtime"
-    },
-    {
-      "name": "web-vitals",
+      "name": "aws-cdk-staging-pipeline",
       "type": "runtime"
     }
   ],
