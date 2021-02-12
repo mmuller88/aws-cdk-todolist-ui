@@ -34,5 +34,9 @@ export class StaticSite extends CustomStack {
       sources: [s3deploy.Source.asset('./frontend/build')],
       destinationBucket: siteBucket,
     });
+
+    new core.CfnOutput(this, 'bucketWebsiteUrl', {
+      value: siteBucket.bucketWebsiteUrl,
+    });
   }
 }
