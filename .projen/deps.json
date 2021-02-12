@@ -82,17 +82,47 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-cdk/aws-codepipeline-actions",
+      "version": "^1.88.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/aws-codepipeline",
+      "version": "^1.88.0",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-cdk/aws-iam",
       "version": "^1.88.0",
       "type": "runtime"
     },
     {
+      "name": "@aws-cdk/aws-lambda-nodejs",
+      "version": "^1.88.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/aws-s3-deployment",
+      "version": "^1.88.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/aws-s3",
+      "version": "^1.88.0",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-cdk/core",
       "version": "^1.88.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/core",
+      "version": "^1.88.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/pipelines",
       "version": "^1.88.0",
       "type": "runtime"
     },

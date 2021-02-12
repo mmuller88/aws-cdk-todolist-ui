@@ -7,6 +7,12 @@ const project = new AwsCdkTypeScriptApp({
   cdkDependencies: [
     '@aws-cdk/aws-iam',
     '@aws-cdk/core',
+    '@aws-cdk/aws-s3-deployment',
+    '@aws-cdk/aws-s3',
+    '@aws-cdk/aws-codepipeline',
+    '@aws-cdk/aws-codepipeline-actions',
+    '@aws-cdk/pipelines',
+    '@aws-cdk/aws-lambda-nodejs',
   ],
   deps: [
     '@mobileposse/auto-delete-bucket',
@@ -15,12 +21,22 @@ const project = new AwsCdkTypeScriptApp({
     // 'cdk-appsync-transformer',
   ],
 
+  context: {
+    '@aws-cdk/core:enableStackNameDuplicates': true,
+    'aws-cdk:enableDiffNoFail': true,
+    '@aws-cdk/core:stackRelativeExports': true,
+    '@aws-cdk/core:newStyleStackSynthesis': true,
+  },
+
   gitignore: [
     // 'appsync/',
   ],
 
   releaseWorkflow: false,
 });
+
+project.setScript('cdkDeploy', 'cdk deploy');
+project.setScript('cdkDestroy', 'cdk destroy');
 
 project.synth();
 

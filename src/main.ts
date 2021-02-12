@@ -1,22 +1,50 @@
-import { App, Construct, Stack, StackProps } from '@aws-cdk/core';
+import * as core from '@aws-cdk/core';
+import { PipelineStack } from 'aws-cdk-staging-pipeline';
+import { StaticSite } from './static-site';
 
-export class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps = {}) {
-    super(scope, id, props);
+const app = new core.App();
 
-    // define resources here...
-  }
-}
+new PipelineStack(app, 'todolist-pipeline-ui', {
+  stackName: 'todolist-pipeline-ui',
+  // Account and region where the pipeline will be build
+  env: {
+    account: '981237193288',
+    region: 'eu-central-1',
+  },
+  // Staging Accounts e.g. dev qa prod
+  stageAccounts: [{
+    account: {
+      id: '981237193288',
+      region: 'eu-central-1',
+    },
+    stage: 'dev',
+  }],
+  branch: 'main',
+  repositoryName: 'aws-cdk-todolist-ui',
+  badges: { synthBadge: false },
+  // installCommand: 'npm ci',
+  customStack: (scope, stageAccount) => {
+    const staticSite = new StaticSite(scope, `todolist-ui-stack-${stageAccount.stage}`, {
+      stackName: `todolist-ui-stack-${stageAccount.stage}`,
+      stage: stageAccount.stage,
+    });
+    return staticSite;
+  },
+  // all stages need manual approval
+  manualApprovals: (stageAccount) => stageAccount.stage === 'prod',
+  // not much test magic here yet. Will soon setup some Postman integration tests Check the property for instructions!
+  testCommands: (stageAccount) => [
+    `echo "${stageAccount.stage} stage"`,
+    `echo ${stageAccount.account.id} id + ${stageAccount.account.region} region`,
+  ],
+  gitHub: {
+    owner: 'mmuller88',
+    oauthToken: core.SecretValue.secretsManager('alfcdk', {
+      jsonField: 'muller88-github-token',
+    }),
+  },
+});
 
-// for development, use account/region from cdk cli
-const devEnv = {
-  account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION,
-};
-
-const app = new App();
-
-new MyStack(app, 'my-stack-dev', { env: devEnv });
-// new MyStack(app, 'my-stack-prod', { env: prodEnv });
+// new BuildBadge(stack, 'BuildBadge', { hideAccountID: 'no' });
 
 app.synth();
