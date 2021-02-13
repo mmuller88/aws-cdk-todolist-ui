@@ -18,6 +18,12 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
       region: 'eu-central-1',
     },
     stage: 'dev',
+  }, {
+    account: {
+      id: '991829251144',
+      region: 'eu-central-1',
+    },
+    stage: 'prod',
   }],
   branch: 'main',
   repositoryName: 'aws-cdk-todolist-ui',
