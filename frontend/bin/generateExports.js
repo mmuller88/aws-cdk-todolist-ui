@@ -30,7 +30,7 @@ let awsmobile = {
 main();
 
 async function main() {
-    const exportFileName = 'aws-exports.js';
+    const exportFileName = 'aws-exports/aws-exports.js';
     console.log('Generating aws-exports.js')
 
     var describeStackParams = {

@@ -69,7 +69,7 @@ const frontendProject = new web.ReactTypeScriptProject({
   ],
 
   gitignore: [
-    'aws-exports.js',
+    'aws-exports/aws-exports.js',
   ],
 
   tsconfig: {
