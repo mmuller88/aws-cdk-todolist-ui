@@ -31,7 +31,7 @@ export class StaticSite extends CustomStack {
 
     // Deploy site contents to S3 bucket
     new s3deploy.BucketDeployment(this, 'BucketDeployment', {
-      sources: [s3deploy.Source.asset('./frontend/build'), s3deploy.Source.asset(`./frontend/public/config-${props.stage}`), s3deploy.Source.asset('./frontend/src/aws-exports')],
+      sources: [s3deploy.Source.asset('./frontend/build'), s3deploy.Source.asset(`./frontend/config/${props.stage}`), s3deploy.Source.asset('./frontend/src/aws-exports')],
       destinationBucket: siteBucket,
     });
 
