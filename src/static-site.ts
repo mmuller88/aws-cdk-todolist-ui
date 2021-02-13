@@ -5,7 +5,7 @@ import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
 import { CustomStack } from 'aws-cdk-staging-pipeline/lib/custom-stack';
 
 
-export interface StaticSiteProps {
+export interface StaticSiteProps extends core.StackProps {
   readonly stage: string;
 }
 
