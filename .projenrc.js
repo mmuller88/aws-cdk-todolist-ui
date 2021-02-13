@@ -98,7 +98,7 @@ frontendProject.addTask('dev', {
 
 frontendProject.addTask('generate-exports', {
   description: 'Generates aws-exports.js',
-  exec: 'node bin/generateExports.js',
+  exec: 'node bin/generateExports.js dev && node bin/generateExports.js prod',
 });
 
 // project.addTask('copy-schema', {

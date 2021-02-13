@@ -135,7 +135,7 @@
       "description": "Generates aws-exports.js",
       "steps": [
         {
-          "exec": "node bin/generateExports.js"
+          "exec": "node bin/generateExports.js dev && node bin/generateExports.js prod"
         }
       ]
     },

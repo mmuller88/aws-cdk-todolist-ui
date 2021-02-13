@@ -2,13 +2,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const AWS = require('aws-sdk');
-AWS.config.update({region:'eu-central-1'});
-const cloudformation = new AWS.CloudFormation();
-
 const REGION = process.env.REGION || 'eu-central-1'
 
-const STACK_NAME = `todolist-stack-dev`;
+const AWS = require('aws-sdk');
+AWS.config.update({region:'eu-central-1'});
 
 const appsyncGraphQLURLOutputKey = 'appsyncGraphQLEndpointOutput';
 const userPoolIdOutputKey = 'awsUserPoolId';
@@ -16,7 +13,8 @@ const userPoolClientOutputKey = 'awsUserPoolWebClientId';
 const identityPoolOutputKey = 'awsIdentityPoolId';
 const authenticationTypeOutputKey = 'awsAppsyncAuthenticationType';
 
-let awsmobile = {
+let config = {
+    stage: '',
     aws_project_region: REGION,
     aws_appsync_graphqlEndpoint: '',
     aws_appsync_region: REGION,
@@ -30,8 +28,20 @@ let awsmobile = {
 main();
 
 async function main() {
-    const exportFileName = 'aws-exports/aws-exports.js';
-    console.log('Generating aws-exports.js')
+    var myArgs = process.argv.slice(2);
+    var stage = myArgs[0] || 'dev';
+    var STACK_NAME = `todolist-stack-${stage}`
+
+    if(stage === 'prod'){
+        process.env.AWS_SDK_LOAD_CONFIG=1;
+        var credentials = new AWS.SharedIniFileCredentials({profile: 'prod', filename: '~/.aws/credentials'});
+        AWS.config.credentials = credentials;
+    }
+    
+    const cloudformation = new AWS.CloudFormation();
+
+    const exportFileName = `config/${stage}/config.js`;
+    console.log('Generating config.js')
 
     var describeStackParams = {
         StackName: STACK_NAME
@@ -59,17 +69,18 @@ async function main() {
         return output.OutputKey === authenticationTypeOutputKey;
     })
 
-    awsmobile.aws_appsync_graphqlEndpoint = appsyncGraphQLEndpoint.OutputValue;
-    awsmobile.aws_appsync_authenticationType = authenticationType.OutputValue;
-    awsmobile.aws_user_pools_id = userPoolId.OutputValue;
-    awsmobile.aws_user_pools_web_client_id = userPoolWebClientId.OutputValue;
-    awsmobile.aws_cognito_identity_pool_id = identityPoolId.OutputValue;
+    config.stage = stage;
+    config.aws_appsync_graphqlEndpoint = appsyncGraphQLEndpoint.OutputValue;
+    config.aws_appsync_authenticationType = authenticationType.OutputValue;
+    config.aws_user_pools_id = userPoolId.OutputValue;
+    config.aws_user_pools_web_client_id = userPoolWebClientId.OutputValue;
+    config.aws_cognito_identity_pool_id = identityPoolId.OutputValue;
 
     let awsExportsPath = path.join(__dirname, '..', 'src', exportFileName);
 
-    let data = `const awsmobile = ${JSON.stringify(awsmobile, null, 4)}
+    let data = `window.ENV = ${JSON.stringify(config, null, 4)}`
     
-    export default awsmobile;`.replace(/^    export default awsmobile/gm, 'export default awsmobile');
+    // export default awsmobile;`.replace(/^    export default awsmobile/gm, 'export default awsmobile');
 
     fs.writeFileSync(awsExportsPath, data);
     console.log(`Wrote exports to ${awsExportsPath}`);

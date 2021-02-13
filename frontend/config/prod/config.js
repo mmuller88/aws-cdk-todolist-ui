@@ -1,3 +1,0 @@
-window.ENV = {
-  STAGE: "prod",
-};
