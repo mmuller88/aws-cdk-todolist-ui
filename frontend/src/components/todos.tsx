@@ -6,6 +6,7 @@ import { TodoItem, useTodoListQuery, TodoAddDocument } from '../lib/api';
 import { API } from '../lib/fetcher';
 
 const initialState = { body: '', username: ''  };
+declare const window: any;
 
 export function Todos() {
   const [todo, setTodo] = useState(initialState);
@@ -53,7 +54,7 @@ export function Todos() {
               return (
                 <div>
                   <h4>Body: {todo.body}</h4>
-                  <h5>Id: {todo.id}</h5>
+                  {window.ENV.STAGE === 'dev'? <h5>Id: {todo.id}</h5> : ''}
                   <h5>Username: {todo.username}</h5>
                 </div>
               )

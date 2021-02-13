@@ -6,12 +6,12 @@ import { CustomStack } from 'aws-cdk-staging-pipeline/lib/custom-stack';
 
 
 export interface StaticSiteProps {
-  // readonly stage: string;
+  readonly stage: string;
 }
 
 export class StaticSite extends CustomStack {
   constructor(scope: core.Construct, id: string, props: StaticSiteProps) {
-    super(scope, id, props);
+    super(scope, id);
 
     const siteBucket = new AutoDeleteBucket(this, 'SiteBucket', {
       // bucketName: siteDomain,
@@ -31,7 +31,7 @@ export class StaticSite extends CustomStack {
 
     // Deploy site contents to S3 bucket
     new s3deploy.BucketDeployment(this, 'BucketDeployment', {
-      sources: [s3deploy.Source.asset('./frontend/build')],
+      sources: [s3deploy.Source.asset('./frontend/build'), s3deploy.Source.asset(`./frontend/public/config-${props.stage}`)],
       destinationBucket: siteBucket,
     });
 
