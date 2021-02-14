@@ -52,6 +52,4 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
   },
 });
 
-// new BuildBadge(stack, 'BuildBadge', { hideAccountID: 'no' });
-
 app.synth();
