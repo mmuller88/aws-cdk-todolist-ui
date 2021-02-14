@@ -54,7 +54,7 @@ export function Todos() {
               return (
                 <div>
                   <h4>Body: {todo.body}</h4>
-                  {/* {window.ENV.stage === 'dev'? <h5>Id: {todo.id}</h5> : ''} */}
+                  {window.ENV.stage === 'dev'? <h5>Id: {todo.id}</h5> : ''}
                   <h5>Username: {todo.username}</h5>
                 </div>
               )
