@@ -32,7 +32,7 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
   // installCommand: 'npm ci',
   customStack: (scope, stageAccount) => {
     const staticSite = new StaticSite(scope, `todolist-ui-stack-${stageAccount.stage}`, {
-      // stackName: `todolist-ui-stack-${stageAccount.stage}`,
+      stackName: `todolist-ui-stack-${stageAccount.stage}`,
       stage: stageAccount.stage,
     });
     return staticSite;
