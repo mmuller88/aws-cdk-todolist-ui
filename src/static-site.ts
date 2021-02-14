@@ -11,7 +11,7 @@ export interface StaticSiteProps extends core.StackProps {
 
 export class StaticSite extends CustomStack {
   constructor(scope: core.Construct, id: string, props: StaticSiteProps) {
-    super(scope, id);
+    super(scope, id, props);
 
     const siteBucket = new AutoDeleteBucket(this, 'SiteBucket', {
       // bucketName: siteDomain,
