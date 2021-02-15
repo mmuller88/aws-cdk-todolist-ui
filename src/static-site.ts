@@ -1,7 +1,7 @@
-import { HttpMethods } from '@aws-cdk/aws-s3';
+import * as s3 from '@aws-cdk/aws-s3';
 import * as s3deploy from '@aws-cdk/aws-s3-deployment';
 import * as core from '@aws-cdk/core';
-import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
+// import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
 import { CustomStack } from 'aws-cdk-staging-pipeline/lib/custom-stack';
 
 
@@ -13,20 +13,20 @@ export class StaticSite extends CustomStack {
   constructor(scope: core.Construct, id: string, props: StaticSiteProps) {
     super(scope, id, props);
 
-    const siteBucket = new AutoDeleteBucket(this, 'SiteBucket', {
-      // bucketName: siteDomain,
+    const siteBucket = new s3.Bucket(this, 'SiteBucket', {
       websiteIndexDocument: 'index.html',
       websiteErrorDocument: 'error.html',
       publicReadAccess: true,
       cors: [
         {
-          allowedMethods: [HttpMethods.GET, HttpMethods.HEAD],
+          allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
           allowedOrigins: ['*'],
           allowedHeaders: ['*'],
           exposedHeaders: ['ETag', 'x-amz-meta-custom-header', 'Authorization', 'Content-Type', 'Accept'],
         },
       ],
       removalPolicy: core.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
     });
 
     // Deploy site contents to S3 bucket
