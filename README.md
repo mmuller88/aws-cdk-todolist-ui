@@ -1,6 +1,6 @@
-synth: [![Synth](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/)](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/?url=true)
+synth: [![Synth](https://iucz3dfrxf.execute-api.eu-central-1.amazonaws.com/prod/)](https://iucz3dfrxf.execute-api.eu-central-1.amazonaws.com/prod/?url=true)
 
-update pipeline: [![Synth](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/?projectName=CdkPipelineUpdatePipelineSe-b5VTvuigb4Db)](https://dm4j4fvawb.execute-api.eu-central-1.amazonaws.com/prod/?url=true&projectName=CdkPipelineUpdatePipelineSe-b5VTvuigb4Db)
+update pipeline: [![Synth](https://iucz3dfrxf.execute-api.eu-central-1.amazonaws.com/prod/?projectName=CdkPipelineUpdatePipelineSe-RqTDWVeJZcNK)](https://iucz3dfrxf.execute-api.eu-central-1.amazonaws.com/prod/?url=true&projectName=CdkPipelineUpdatePipelineSe-RqTDWVeJZcNK)
 
 # aws-cdk-todolist-ui
 

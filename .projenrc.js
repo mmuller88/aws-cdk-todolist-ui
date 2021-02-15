@@ -15,10 +15,8 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-lambda-nodejs',
   ],
   deps: [
-    // '@mobileposse/auto-delete-bucket',
     'aws-cdk-staging-pipeline',
     'aws-cdk-build-badge',
-    // 'cdk-appsync-transformer',
   ],
 
   context: {

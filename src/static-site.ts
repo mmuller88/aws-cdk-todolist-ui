@@ -1,7 +1,6 @@
 import * as s3 from '@aws-cdk/aws-s3';
 import * as s3deploy from '@aws-cdk/aws-s3-deployment';
 import * as core from '@aws-cdk/core';
-// import { AutoDeleteBucket } from '@mobileposse/auto-delete-bucket';
 import { CustomStack } from 'aws-cdk-staging-pipeline/lib/custom-stack';
 
 
