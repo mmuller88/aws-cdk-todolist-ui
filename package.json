@@ -22,6 +22,10 @@
     "destroy": "npx projen destroy",
     "diff": "npx projen diff"
   },
+  "author": {
+    "name": "martin.mueller",
+    "organization": false
+  },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^10.17.0",
@@ -51,7 +55,6 @@
     "@aws-cdk/aws-s3-deployment": "^1.88.0",
     "@aws-cdk/core": "^1.88.0",
     "@aws-cdk/pipelines": "^1.88.0",
-    "@mobileposse/auto-delete-bucket": "^1.55.0",
     "aws-cdk-build-badge": "^0.0.8",
     "aws-cdk-staging-pipeline": "^1.88.6"
   },

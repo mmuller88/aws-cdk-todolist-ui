@@ -29,7 +29,6 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
   repositoryName: 'aws-cdk-todolist-ui',
   badges: { synthBadge: true },
   buildCommand: 'cd frontend && yarn install && yarn build && cd ..',
-  // installCommand: 'npm ci',
   customStack: (scope, stageAccount) => {
     const staticSite = new StaticSite(scope, `todolist-ui-stack-${stageAccount.stage}`, {
       stackName: `todolist-ui-stack-${stageAccount.stage}`,
@@ -37,7 +36,7 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
     });
     return staticSite;
   },
-  // all stages need manual approval
+  // which stage needs a manual approval. Here is only prod
   manualApprovals: (stageAccount) => stageAccount.stage === 'prod',
   // not much test magic here yet. Will soon setup some Postman integration tests Check the property for instructions!
   testCommands: (stageAccount) => [

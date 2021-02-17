@@ -1,6 +1,8 @@
 const { web, AwsCdkTypeScriptApp } = require('projen');
 
 const project = new AwsCdkTypeScriptApp({
+  authorAddress: 'damadden88@googlemail.com',
+  authorName: 'martin.mueller',
   name: 'aws-cdk-todolist-ui',
   defaultReleaseBranch: 'main',
   cdkVersion: '1.88.0',
@@ -39,8 +41,6 @@ project.setScript('cdkDestroy', 'cdk destroy');
 project.synth();
 
 const frontendProject = new web.ReactTypeScriptProject({
-  authorAddress: 'damadden88@googlemail.de',
-  authorName: 'martin.mueller',
   defaultReleaseBranch: 'main',
   outdir: 'frontend',
   parent: project,

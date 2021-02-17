@@ -127,10 +127,6 @@
       "type": "runtime"
     },
     {
-      "name": "@mobileposse/auto-delete-bucket",
-      "type": "runtime"
-    },
-    {
       "name": "aws-cdk-build-badge",
       "type": "runtime"
     },

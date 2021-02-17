@@ -18,10 +18,6 @@
     "generate-statements": "npx projen generate-statements",
     "codegen": "npx projen codegen"
   },
-  "author": {
-    "name": "martin.mueller",
-    "organization": false
-  },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.20.1",
     "@graphql-codegen/typescript": "^1.21.0",
