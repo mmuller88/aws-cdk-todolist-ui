@@ -8,7 +8,7 @@ const project = new AwsCdkTypeScriptApp({
   cdkVersion: '1.88.0',
   cdkDependencies: [
     '@aws-cdk/aws-iam',
-    '@aws-cdk/core',
+    // '@aws-cdk/core',
     '@aws-cdk/aws-s3-deployment',
     '@aws-cdk/aws-s3',
     '@aws-cdk/aws-codepipeline',
@@ -27,11 +27,6 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/core:stackRelativeExports': true,
     '@aws-cdk/core:newStyleStackSynthesis': true,
   },
-
-  gitignore: [
-    // 'appsync/',
-  ],
-
   releaseWorkflow: false,
 });
 
@@ -44,14 +39,13 @@ const frontendProject = new web.ReactTypeScriptProject({
   defaultReleaseBranch: 'main',
   outdir: 'frontend',
   parent: project,
-  // jsiiFqn: "projen.web.ReactTypeScriptProject",
   name: 'aws-cdk-todolist-ui-frontend',
   deps: [
     '@aws-amplify/auth',
     '@aws-amplify/ui-components',
     '@aws-amplify/ui-react',
     'aws-amplify',
-    'react-query@^2', // I have an open PR for react-query v3 support
+    'react-query@^2',
     'react-router',
     'react-router-dom',
     '@types/react-router-dom',
@@ -65,11 +59,6 @@ const frontendProject = new web.ReactTypeScriptProject({
     'aws-sdk@^2',
     'graphql',
   ],
-
-  gitignore: [
-    'aws-exports/aws-exports.js',
-  ],
-
   tsconfig: {
     compilerOptions: {
       allowJs: true,
@@ -99,10 +88,6 @@ frontendProject.addTask('generate-exports', {
   exec: 'node bin/generateExports.js dev && node bin/generateExports.js prod',
 });
 
-// project.addTask('copy-schema', {
-//   exec: 'cp appsync/schema.graphql ./schema.graphql',
-// });
-
 frontendProject.addTask('generate-statements', {
   exec: 'node bin/generateStatements.js',
 });
@@ -110,7 +95,6 @@ frontendProject.addTask('generate-statements', {
 
 frontendProject.addTask('codegen', {
   description: 'Copies the backend schema and generates frontend code',
-  // exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
   exec: 'yarn run generate-statements && graphql-codegen --config codegen.yml',
 });
 
