@@ -34,8 +34,9 @@ export class StaticSite extends CustomStack {
       destinationBucket: siteBucket,
     });
 
-    new core.CfnOutput(this, 'bucketWebsiteUrl', {
+    const url = new core.CfnOutput(this, 'bucketWebsiteUrl', {
       value: siteBucket.bucketWebsiteUrl,
     });
+    this.cfnOutputs.bucketWebsiteUrl = url;
   }
 }

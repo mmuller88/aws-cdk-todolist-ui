@@ -41,7 +41,9 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
   // not much test magic here yet. Will soon setup some Postman integration tests Check the property for instructions!
   testCommands: (stageAccount) => [
     `echo "${stageAccount.stage} stage"`,
-    `echo ${stageAccount.account.id} id + ${stageAccount.account.region} region`,
+    'STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" $appsyncGraphQLEndpointOutput)',
+    'echo Statuscode = $STATUSCODE',
+    'if test $STATUSCODE -ne 200; then exit 1; fi',
   ],
   gitHub: {
     owner: 'mmuller88',
