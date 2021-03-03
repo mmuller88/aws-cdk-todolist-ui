@@ -30,6 +30,8 @@ const project = new AwsCdkTypeScriptApp({
   releaseWorkflow: false,
 });
 
+project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
+
 project.setScript('cdkDeploy', 'cdk deploy');
 project.setScript('cdkDestroy', 'cdk destroy');
 

@@ -73,6 +73,9 @@
       "description": "Full release build (test+compile)",
       "steps": [
         {
+          "exec": "cd frontend && yarn install && yarn build && cd .."
+        },
+        {
           "spawn": "test"
         },
         {
