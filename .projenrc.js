@@ -18,9 +18,7 @@ const project = new AwsCdkTypeScriptApp({
   ],
   deps: [
     'aws-cdk-staging-pipeline',
-    'aws-cdk-build-badge',
   ],
-
   context: {
     '@aws-cdk/core:enableStackNameDuplicates': true,
     'aws-cdk:enableDiffNoFail': true,
