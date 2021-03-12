@@ -5,8 +5,7 @@ const project = new AwsCdkTypeScriptApp({
   authorName: 'martin.mueller',
   name: 'aws-cdk-todolist-ui',
   defaultReleaseBranch: 'main',
-  cdkVersion: '1.92.0',
-  cdkVersionPinning: true,
+  cdkVersion: '1.93.0',
   cdkDependencies: [
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-s3-deployment',
