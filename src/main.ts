@@ -38,13 +38,6 @@ new PipelineStack(app, 'todolist-pipeline-ui', {
   },
   // which stage needs a manual approval. Here is only prod
   manualApprovals: (stageAccount) => stageAccount.stage === 'prod',
-  // not much test magic here yet. Will soon setup some Postman integration tests Check the property for instructions!
-  testCommands: (stageAccount) => [
-    `echo "${stageAccount.stage} stage"`,
-    'STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" $bucketWebsiteUrl)',
-    'echo Statuscode = $STATUSCODE',
-    'if test $STATUSCODE -ne 200; then exit 1; fi',
-  ],
   gitHub: {
     owner: 'mmuller88',
     oauthToken: core.SecretValue.secretsManager('alfcdk', {
