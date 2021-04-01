@@ -138,23 +138,6 @@
           "exec": "node bin/generateExports.js dev && node bin/generateExports.js prod"
         }
       ]
-    },
-    "generate-statements": {
-      "name": "generate-statements",
-      "steps": [
-        {
-          "exec": "node bin/generateStatements.js"
-        }
-      ]
-    },
-    "codegen": {
-      "name": "codegen",
-      "description": "Copies the backend schema and generates frontend code",
-      "steps": [
-        {
-          "exec": "yarn run generate-statements && graphql-codegen --config codegen.yml"
-        }
-      ]
     }
   },
   "env": {

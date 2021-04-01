@@ -87,13 +87,4 @@ frontendProject.addTask('generate-exports', {
   exec: 'node bin/generateExports.js dev && node bin/generateExports.js prod',
 });
 
-frontendProject.addTask('generate-statements', {
-  exec: 'node bin/generateStatements.js',
-});
-
-frontendProject.addTask('codegen', {
-  description: 'Copies the backend schema and generates frontend code',
-  exec: 'yarn run generate-statements && graphql-codegen --config codegen.yml',
-});
-
 frontendProject.synth();
