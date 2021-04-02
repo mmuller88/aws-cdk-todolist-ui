@@ -77,9 +77,4 @@ const frontendProject = new web.ReactTypeScriptProject({
   releaseWorkflow: false,
 });
 
-frontendProject.addTask('dev', {
-  description: 'Runs the application locally',
-  exec: 'react-scripts start',
-});
-
 frontendProject.synth();

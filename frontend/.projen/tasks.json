@@ -113,7 +113,8 @@
     },
     "dev": {
       "name": "dev",
-      "description": "Runs the application locally",
+      "category": "00.build",
+      "description": "Starts the react application",
       "steps": [
         {
           "exec": "react-scripts start"
