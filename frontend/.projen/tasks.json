@@ -129,15 +129,6 @@
           "exec": "react-scripts eject"
         }
       ]
-    },
-    "generate-exports": {
-      "name": "generate-exports",
-      "description": "Generates aws-exports.js",
-      "steps": [
-        {
-          "exec": "node bin/generateExports.js dev && node bin/generateExports.js prod"
-        }
-      ]
     }
   },
   "env": {

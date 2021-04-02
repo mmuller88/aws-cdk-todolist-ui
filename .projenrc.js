@@ -82,9 +82,4 @@ frontendProject.addTask('dev', {
   exec: 'react-scripts start',
 });
 
-frontendProject.addTask('generate-exports', {
-  description: 'Generates aws-exports.js',
-  exec: 'node bin/generateExports.js dev && node bin/generateExports.js prod',
-});
-
 frontendProject.synth();

@@ -12,7 +12,6 @@
     "watch": "npx projen watch",
     "dev": "npx projen dev",
     "eject": "npx projen eject",
-    "generate-exports": "npx projen generate-exports",
     "projen": "npx projen",
     "start": "npx projen start"
   },
