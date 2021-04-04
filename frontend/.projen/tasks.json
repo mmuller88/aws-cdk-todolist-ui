@@ -138,6 +138,15 @@
           "exec": "node bin/generateExports.js dev && node bin/generateExports.js prod"
         }
       ]
+    },
+    "codegen": {
+      "name": "codegen",
+      "description": "Generates frontend GraphQL wrapper API code",
+      "steps": [
+        {
+          "exec": "graphql-codegen --config codegen.yml"
+        }
+      ]
     }
   },
   "env": {

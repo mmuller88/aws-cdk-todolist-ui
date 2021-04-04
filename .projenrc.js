@@ -87,4 +87,9 @@ frontendProject.addTask('generate-exports', {
   exec: 'node bin/generateExports.js dev && node bin/generateExports.js prod',
 });
 
+frontendProject.addTask('codegen', {
+  description: 'Generates frontend GraphQL wrapper API code',
+  exec: 'graphql-codegen --config codegen.yml',
+ }); 
+
 frontendProject.synth();
