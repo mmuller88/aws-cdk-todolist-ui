@@ -21,13 +21,13 @@ function App() {
       <AmplifySignOut />
     </nav>
     <div>
-        <Router>
-          <Switch>
-            <Route exact path="/" render={(props: any) => <div {...props}>root</div>} />
-            <Route path="/todos" render={(props: any) => <div {...props}>todos</div>} />
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" render={(props: any) => <div {...props}>root</div>} />
+          <Route path="/todos" render={(props: any) => <div {...props}>todos</div>} />
+        </Switch>
+      </Router>
+    </div>
   </div>
   );
 }
