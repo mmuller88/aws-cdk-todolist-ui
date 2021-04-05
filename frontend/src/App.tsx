@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css'
 
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
@@ -19,6 +20,14 @@ function App() {
       </ul>
       <AmplifySignOut />
     </nav>
+    <div>
+        <Router>
+          <Switch>
+            <Route exact path="/" render={(props: any) => <div {...props}>root</div>} />
+            <Route path="/todos" render={(props: any) => <div {...props}>todos</div>} />
+          </Switch>
+        </Router>
+      </div>
   </div>
   );
 }
