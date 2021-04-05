@@ -141,7 +141,7 @@
     },
     "codegen": {
       "name": "codegen",
-      "description": "Copies the backend schema and generates frontend code",
+      "description": "Generates frontend GraphQL wrapper API code",
       "steps": [
         {
           "exec": "graphql-codegen --config codegen.yml"
