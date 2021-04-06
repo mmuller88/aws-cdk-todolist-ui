@@ -4,7 +4,7 @@ import { StaticSite } from './static-site';
 
 const app = new core.App();
 
-new PipelineStack(app, 'todolist-pipeline-ui', {
+new PipelineStack(app, 'todolist-ui-pipeline', {
   stackName: 'todolist-pipeline-ui',
   // Account and region where the pipeline will be build
   env: {
