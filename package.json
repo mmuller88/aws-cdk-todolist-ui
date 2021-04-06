@@ -17,9 +17,7 @@
     "destroy": "npx projen destroy",
     "diff": "npx projen diff",
     "projen": "npx projen",
-    "start": "npx projen start",
-    "cdkDeploy": "cdk deploy",
-    "cdkDestroy": "cdk destroy"
+    "start": "npx projen start"
   },
   "author": {
     "name": "martin.mueller",
