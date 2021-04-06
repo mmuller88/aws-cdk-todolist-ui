@@ -21,28 +21,16 @@ export type Scalars = {
   Int: number;
   Float: number;
   AWSDate: any;
-  AWSTime: any;
   AWSDateTime: any;
-  AWSTimestamp: any;
   AWSEmail: any;
-  AWSJSON: any;
-  AWSURL: any;
-  AWSPhone: any;
   AWSIPAddress: any;
+  AWSJSON: any;
+  AWSPhone: any;
+  AWSTime: any;
+  AWSTimestamp: any;
+  AWSURL: any;
   BigInt: any;
   Double: any;
-};
-
-export type TodoItem = {
-  __typename?: "todoItem";
-  id: Scalars["String"];
-  body: Scalars["String"];
-  username: Scalars["String"];
-};
-
-export type Query = {
-  __typename?: "Query";
-  todoList?: Maybe<Array<Maybe<TodoItem>>>;
 };
 
 export type Mutation = {
@@ -58,6 +46,18 @@ export type MutationTodoAddArgs = {
 
 export type MutationTodoRemoveArgs = {
   id: Scalars["String"];
+};
+
+export type Query = {
+  __typename?: "Query";
+  todoList?: Maybe<Array<Maybe<TodoItem>>>;
+};
+
+export type TodoItem = {
+  __typename?: "todoItem";
+  id: Scalars["String"];
+  body: Scalars["String"];
+  username: Scalars["String"];
 };
 
 export type TodoAddMutationVariables = Exact<{
