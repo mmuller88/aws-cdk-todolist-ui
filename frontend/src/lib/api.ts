@@ -1,3 +1,10 @@
+import {
+  useMutation,
+  UseMutationOptions,
+  useQuery,
+  UseQueryOptions
+} from "react-query";
+import { amplifyFetcher } from "../lib/fetcher";
 export type Maybe<T> = T | null | undefined;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -41,3 +48,113 @@ export type TodoItem = {
   body: Scalars["String"];
   username: Scalars["String"];
 };
+
+export type TodoAddMutationVariables = Exact<{
+  body: Scalars["String"];
+  username: Scalars["String"];
+}>;
+
+export type TodoAddMutation = { __typename?: "Mutation" } & {
+  todoAdd?: Maybe<
+    { __typename?: "todoItem" } & Pick<TodoItem, "id" | "body" | "username">
+  >;
+};
+
+export type TodoRemoveMutationVariables = Exact<{
+  id: Scalars["String"];
+}>;
+
+export type TodoRemoveMutation = { __typename?: "Mutation" } & {
+  todoRemove?: Maybe<
+    { __typename?: "todoItem" } & Pick<TodoItem, "id" | "body" | "username">
+  >;
+};
+
+export type TodoListQueryVariables = Exact<{ [key: string]: never }>;
+
+export type TodoListQuery = { __typename?: "Query" } & {
+  todoList?: Maybe<
+    Array<
+      Maybe<
+        { __typename?: "todoItem" } & Pick<TodoItem, "id" | "body" | "username">
+      >
+    >
+  >;
+};
+
+export const TodoAddDocument = `
+    mutation TodoAdd($body: String!, $username: String!) {
+  todoAdd(body: $body, username: $username) {
+    id
+    body
+    username
+  }
+}
+    `;
+export const useTodoAddMutation = <TError = unknown, TContext = unknown>(
+  options?: UseMutationOptions<
+    TodoAddMutation,
+    TError,
+    TodoAddMutationVariables,
+    TContext
+  >
+) =>
+  useMutation<TodoAddMutation, TError, TodoAddMutationVariables, TContext>(
+    (variables?: TodoAddMutationVariables) =>
+      amplifyFetcher<TodoAddMutation, TodoAddMutationVariables>(
+        TodoAddDocument,
+        variables
+      )(),
+    options
+  );
+export const TodoRemoveDocument = `
+    mutation TodoRemove($id: String!) {
+  todoRemove(id: $id) {
+    id
+    body
+    username
+  }
+}
+    `;
+export const useTodoRemoveMutation = <TError = unknown, TContext = unknown>(
+  options?: UseMutationOptions<
+    TodoRemoveMutation,
+    TError,
+    TodoRemoveMutationVariables,
+    TContext
+  >
+) =>
+  useMutation<
+    TodoRemoveMutation,
+    TError,
+    TodoRemoveMutationVariables,
+    TContext
+  >(
+    (variables?: TodoRemoveMutationVariables) =>
+      amplifyFetcher<TodoRemoveMutation, TodoRemoveMutationVariables>(
+        TodoRemoveDocument,
+        variables
+      )(),
+    options
+  );
+export const TodoListDocument = `
+    query TodoList {
+  todoList {
+    id
+    body
+    username
+  }
+}
+    `;
+export const useTodoListQuery = <TData = TodoListQuery, TError = unknown>(
+  variables?: TodoListQueryVariables,
+  options?: UseQueryOptions<TodoListQuery, TError, TData>
+) =>
+  useQuery<TodoListQuery, TError, TData>(
+    ["TodoList", variables],
+    amplifyFetcher<TodoListQuery, TodoListQueryVariables>(
+      TodoListDocument,
+      variables
+    ),
+    options
+  );

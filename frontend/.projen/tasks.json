@@ -139,12 +139,20 @@
         }
       ]
     },
+    "generate-statements": {
+      "name": "generate-statements",
+      "steps": [
+        {
+          "exec": "node bin/generateStatements.js"
+        }
+      ]
+    },
     "codegen": {
       "name": "codegen",
       "description": "Generates frontend GraphQL wrapper API code",
       "steps": [
         {
-          "exec": "graphql-codegen --config codegen.yml"
+          "exec": "yarn run generate-statements && graphql-codegen --config codegen.yml"
         }
       ]
     }
