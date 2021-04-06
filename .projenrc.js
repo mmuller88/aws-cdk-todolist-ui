@@ -11,10 +11,6 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-s3-deployment',
     '@aws-cdk/aws-s3',
-    '@aws-cdk/aws-codepipeline',
-    '@aws-cdk/aws-codepipeline-actions',
-    '@aws-cdk/pipelines',
-    '@aws-cdk/aws-lambda-nodejs',
   ],
   deps: [
     'aws-cdk-staging-pipeline',
