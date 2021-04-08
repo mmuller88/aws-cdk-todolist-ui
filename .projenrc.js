@@ -20,8 +20,6 @@ const project = new AwsCdkTypeScriptApp({
   },
 });
 
-project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
-
 project.synth();
 
 const frontendProject = new web.ReactTypeScriptProject({
