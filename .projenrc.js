@@ -11,6 +11,12 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-s3-deployment',
     '@aws-cdk/aws-s3',
+    '@aws-cdk/aws-codepipeline',
+    '@aws-cdk/aws-codepipeline-actions',
+    '@aws-cdk/pipelines',
+  ],
+  deps: [
+    'aws-cdk-staging-pipeline',
   ],
   context: {
     '@aws-cdk/core:enableStackNameDuplicates': true,
@@ -18,7 +24,10 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/core:stackRelativeExports': true,
     '@aws-cdk/core:newStyleStackSynthesis': true,
   },
+  releaseWorkflow: false,
 });
+
+project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
 
 project.synth();
 

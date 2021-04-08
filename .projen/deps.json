@@ -79,6 +79,16 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-cdk/aws-codepipeline-actions",
+      "version": "1.93.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/aws-codepipeline",
+      "version": "1.93.0",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-cdk/aws-iam",
       "version": "1.93.0",
       "type": "runtime"
@@ -96,6 +106,15 @@
     {
       "name": "@aws-cdk/core",
       "version": "1.93.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/pipelines",
+      "version": "1.93.0",
+      "type": "runtime"
+    },
+    {
+      "name": "aws-cdk-staging-pipeline",
       "type": "runtime"
     }
   ],
