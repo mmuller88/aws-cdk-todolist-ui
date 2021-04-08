@@ -1,14 +1,12 @@
 import * as s3 from '@aws-cdk/aws-s3';
 import * as s3deploy from '@aws-cdk/aws-s3-deployment';
 import * as core from '@aws-cdk/core';
-import { CustomStack } from 'aws-cdk-staging-pipeline/lib/custom-stack';
-
 
 export interface StaticSiteProps extends core.StackProps {
   readonly stage: string;
 }
 
-export class StaticSite extends CustomStack {
+export class StaticSite extends core.Stack {
   constructor(scope: core.Construct, id: string, props: StaticSiteProps) {
     super(scope, id, props);
 
@@ -34,9 +32,8 @@ export class StaticSite extends CustomStack {
       destinationBucket: siteBucket,
     });
 
-    const url = new core.CfnOutput(this, 'bucketWebsiteUrl', {
+    new core.CfnOutput(this, 'bucketWebsiteUrl', {
       value: siteBucket.bucketWebsiteUrl,
     });
-    this.cfnOutputs.bucketWebsiteUrl = url;
   }
 }
