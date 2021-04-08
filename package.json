@@ -17,9 +17,7 @@
     "destroy": "npx projen destroy",
     "diff": "npx projen diff",
     "projen": "npx projen",
-    "start": "npx projen start",
-    "cdkDeploy": "cdk deploy",
-    "cdkDestroy": "cdk destroy"
+    "start": "npx projen start"
   },
   "author": {
     "name": "martin.mueller",
@@ -46,15 +44,10 @@
   },
   "dependencies": {
     "@aws-cdk/assert": "1.93.0",
-    "@aws-cdk/aws-codepipeline": "1.93.0",
-    "@aws-cdk/aws-codepipeline-actions": "1.93.0",
     "@aws-cdk/aws-iam": "1.93.0",
-    "@aws-cdk/aws-lambda-nodejs": "1.93.0",
     "@aws-cdk/aws-s3": "1.93.0",
     "@aws-cdk/aws-s3-deployment": "1.93.0",
-    "@aws-cdk/core": "1.93.0",
-    "@aws-cdk/pipelines": "1.93.0",
-    "aws-cdk-staging-pipeline": "^1.92.1"
+    "@aws-cdk/core": "1.93.0"
   },
   "bundledDependencies": [],
   "license": "Apache-2.0",
