@@ -47,8 +47,7 @@
     "@aws-cdk/aws-iam": "1.93.0",
     "@aws-cdk/aws-s3": "1.93.0",
     "@aws-cdk/aws-s3-deployment": "1.93.0",
-    "@aws-cdk/core": "1.93.0",
-    "aws-cdk-staging-pipeline": "^1.92.1"
+    "@aws-cdk/core": "1.93.0"
   },
   "bundledDependencies": [],
   "license": "Apache-2.0",

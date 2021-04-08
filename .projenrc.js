@@ -12,16 +12,12 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-s3-deployment',
     '@aws-cdk/aws-s3',
   ],
-  deps: [
-    'aws-cdk-staging-pipeline',
-  ],
   context: {
     '@aws-cdk/core:enableStackNameDuplicates': true,
     'aws-cdk:enableDiffNoFail': true,
     '@aws-cdk/core:stackRelativeExports': true,
     '@aws-cdk/core:newStyleStackSynthesis': true,
   },
-  releaseWorkflow: false,
 });
 
 project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
