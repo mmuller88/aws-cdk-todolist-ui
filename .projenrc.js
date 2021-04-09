@@ -7,11 +7,6 @@ const project = new AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   cdkVersion: '1.93.0',
   cdkVersionPinning: true,
-  cdkDependencies: [
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-s3-deployment',
-    '@aws-cdk/aws-s3',
-  ],
 });
 
 project.synth();
