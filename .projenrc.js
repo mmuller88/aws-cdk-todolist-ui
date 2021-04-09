@@ -9,13 +9,6 @@ const project = new AwsCdkTypeScriptApp({
   cdkVersionPinning: true,
 });
 
-project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
-
-project.setScript('cdkDeploy', 'cdk deploy');
-project.setScript('cdkDestroy', 'cdk destroy');
-
-project.synth();
-
 const frontendProject = new web.ReactTypeScriptProject({
   defaultReleaseBranch: 'main',
   outdir: 'frontend',
