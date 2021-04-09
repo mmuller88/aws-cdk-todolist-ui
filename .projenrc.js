@@ -7,25 +7,6 @@ const project = new AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   cdkVersion: '1.93.0',
   cdkVersionPinning: true,
-  cdkDependencies: [
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-s3-deployment',
-    '@aws-cdk/aws-s3',
-    '@aws-cdk/aws-codepipeline',
-    '@aws-cdk/aws-codepipeline-actions',
-    '@aws-cdk/pipelines',
-    '@aws-cdk/aws-lambda-nodejs',
-  ],
-  deps: [
-    'aws-cdk-staging-pipeline',
-  ],
-  context: {
-    '@aws-cdk/core:enableStackNameDuplicates': true,
-    'aws-cdk:enableDiffNoFail': true,
-    '@aws-cdk/core:stackRelativeExports': true,
-    '@aws-cdk/core:newStyleStackSynthesis': true,
-  },
-  releaseWorkflow: false,
 });
 
 project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
