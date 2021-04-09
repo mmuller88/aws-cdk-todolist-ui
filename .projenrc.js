@@ -15,22 +15,7 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/pipelines',
     '@aws-cdk/aws-lambda-nodejs',
   ],
-  deps: [
-    'aws-cdk-staging-pipeline',
-  ],
-  context: {
-    '@aws-cdk/core:enableStackNameDuplicates': true,
-    'aws-cdk:enableDiffNoFail': true,
-    '@aws-cdk/core:stackRelativeExports': true,
-    '@aws-cdk/core:newStyleStackSynthesis': true,
-  },
-  releaseWorkflow: false,
 });
-
-project.buildTask.prependExec('cd frontend && yarn install && yarn build && cd ..');
-
-project.setScript('cdkDeploy', 'cdk deploy');
-project.setScript('cdkDestroy', 'cdk destroy');
 
 project.synth();
 
