@@ -76,6 +76,9 @@
           "exec": "cd frontend && yarn install && yarn build && cd .."
         },
         {
+          "exec": "npx projen"
+        },
+        {
           "spawn": "test"
         },
         {

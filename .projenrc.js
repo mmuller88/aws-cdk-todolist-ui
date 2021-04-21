@@ -61,16 +61,7 @@ const frontendProject = new web.ReactTypeScriptProject({
   ],
   tsconfig: {
     compilerOptions: {
-      allowJs: true,
-      skipLibCheck: true,
-      esModuleInterop: true,
-      allowSyntheticDefaultImports: true,
       forceConsistentCasingInFileNames: false,
-      module: 'esnext',
-      moduleResolution: 'node',
-      isolatedModules: true,
-      noEmit: true,
-      jsx: 'react-jsx',
       strictNullChecks: false,
     },
   },
